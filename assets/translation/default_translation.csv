@@ -1,0 +1,7 @@
+,en,zh
+!title,Godot4 Test -- 2048,Godot4测试——2048
+!score,Score,得分
+!setting,Setting,设置
+!quit,Quit,退出
+!language,Language,语言
+!fail_text,Fail! Final Score:%s,失败! 最终得分:%s

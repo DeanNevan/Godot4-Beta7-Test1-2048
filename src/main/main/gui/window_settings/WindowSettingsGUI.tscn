@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtoohfvpu78v6"]
+
+[ext_resource type="Script" path="res://src/main/main/gui/window_settings/WindowSettingsGUI.gd" id="1_nxhgy"]
+
+[node name="WindowSettingsGUI" type="MarginContainer"]
+offset_right = 199.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_nxhgy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 344.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+offset_right = 324.0
+offset_bottom = 4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+offset_top = 8.0
+offset_right = 324.0
+offset_bottom = 68.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+offset_top = 17.0
+offset_right = 200.0
+offset_bottom = 43.0
+text = "!language"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 60)
+offset_left = 204.0
+offset_right = 324.0
+offset_bottom = 60.0
+size_flags_horizontal = 10
+item_count = 2
+popup/item_0/text = "zh"
+popup/item_0/id = 0
+popup/item_1/text = "en"
+popup/item_1/id = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+offset_top = 72.0
+offset_right = 324.0
+offset_bottom = 76.0
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

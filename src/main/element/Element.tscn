@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://byi3vee7ne5ry"]
+
+[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_ad4td"]
+[ext_resource type="Script" path="res://src/main/element/Element.gd" id="1_heyb8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xual7"]
+bg_color = Color(0.682353, 0.682353, 0.682353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.494118, 0.494118, 0.494118, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlph6"]
+bg_color = Color(0.380392, 0.380392, 0.380392, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="Element" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_ad4td")
+script = ExtResource("1_heyb8")
+
+[node name="ValueBackground" type="Panel" parent="."]
+unique_name_in_owner = true
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+theme_override_styles/panel = SubResource("StyleBoxFlat_xual7")
+
+[node name="Value" type="Label" parent="ValueBackground"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.454902, 0.454902, 0.454902, 1)
+text = "2048"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridBackground" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vlph6")

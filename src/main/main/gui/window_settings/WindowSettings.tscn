@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfhb2na6ha3oo"]
+
+[ext_resource type="Script" path="res://src/main/main/gui/window_settings/WindowSettings.gd" id="1_6jdnp"]
+[ext_resource type="PackedScene" uid="uid://dtoohfvpu78v6" path="res://src/main/main/gui/window_settings/WindowSettingsGUI.tscn" id="2_n5l0q"]
+
+[node name="WindowSettings" type="Window"]
+title = "!setting"
+size = Vector2i(400, 300)
+wrap_controls = true
+popup_window = true
+script = ExtResource("1_6jdnp")
+
+[node name="WindowSettingsGUI" parent="." instance=ExtResource("2_n5l0q")]
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="language_selected" from="WindowSettingsGUI" to="." method="_on_window_settings_gui_language_selected"]

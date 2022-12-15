@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=3 uid="uid://dspll87c2n0yn"]
+
+[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_xigkx"]
+[ext_resource type="PackedScene" uid="uid://cuv71i0daq75d" path="res://src/main/board/Board.tscn" id="2_ebxrc"]
+[ext_resource type="Script" path="res://src/main/main/gui/MainGUI.gd" id="2_kmyd3"]
+[ext_resource type="PackedScene" uid="uid://dfhb2na6ha3oo" path="res://src/main/main/gui/window_settings/WindowSettings.tscn" id="3_6ivyv"]
+[ext_resource type="Script" path="res://src/main/main/gui/PopupFail.gd" id="3_ol42a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc2s0"]
+bg_color = Color(0.133333, 0.643137, 0.894118, 0.517647)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.447059, 0.866667, 0.996078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MainGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xigkx")
+script = ExtResource("2_kmyd3")
+
+[node name="PopupFail" type="PopupPanel" parent="."]
+size = Vector2i(308, 208)
+script = ExtResource("3_ol42a")
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupFail"]
+custom_minimum_size = Vector2(300, 200)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 304.0
+offset_bottom = 204.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="PopupFail/MarginContainer"]
+layout_mode = 2
+auto_translate = false
+text = "!fail_text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowSettings" parent="." instance=ExtResource("3_6ivyv")]
+visible = false
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0.231373, 0.960784, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/HSplitContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Board" parent="MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("2_ebxrc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "!title"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "!score"
+
+[node name="Score" type="LineEdit" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_tc2s0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonSetting" type="Button" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "!setting"
+
+[node name="ButtonQuit" type="Button" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "!quit"
+
+[connection signal="combine_event_happend" from="MarginContainer/HSplitContainer/MarginContainer/Board" to="." method="_on_board_combine_event_happend"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonSetting" to="." method="_on_button_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
