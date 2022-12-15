@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dspll87c2n0yn"]
+[gd_scene load_steps=7 format=3 uid="uid://j5q1v7i8qh5b"]
 
-[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_aqp4v"]
+[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_1jxrk"]
 [ext_resource type="PackedScene" uid="uid://cuv71i0daq75d" path="res://src/main/board/Board.tscn" id="2_ebxrc"]
 [ext_resource type="Script" path="res://src/main/main/gui/MainGUI.gd" id="2_kmyd3"]
 [ext_resource type="PackedScene" uid="uid://dfhb2na6ha3oo" path="res://src/main/main/gui/window_settings/WindowSettings.tscn" id="3_6ivyv"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_aqp4v")
+theme = ExtResource("1_1jxrk")
 script = ExtResource("2_kmyd3")
 
 [node name="WindowIntro" type="Window" parent="."]
@@ -196,6 +196,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "!setting"
 
+[node name="ButtonIntro" type="Button" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "!intro"
+
 [node name="ButtonQuit" type="Button" parent="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -206,4 +213,5 @@ text = "!quit"
 [connection signal="close_requested" from="WindowIntro" to="." method="_on_window_intro_close_requested"]
 [connection signal="combine_event_happend" from="MarginContainer/HSplitContainer/MarginContainer/Board" to="." method="_on_board_combine_event_happend"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonSetting" to="." method="_on_button_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonIntro" to="." method="_on_button_intro_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

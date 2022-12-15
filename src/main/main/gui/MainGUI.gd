@@ -55,3 +55,8 @@ func _on_board_combine_event_happend(final_value : int):
 func _on_window_intro_close_requested():
 	$WindowIntro.hide()
 	pass # Replace with function body.
+
+
+func _on_button_intro_pressed():
+	$WindowIntro.popup_centered()
+	pass # Replace with function body.
