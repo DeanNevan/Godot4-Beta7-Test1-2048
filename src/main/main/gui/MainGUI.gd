@@ -7,8 +7,9 @@ var score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	TranslationServer.set_locale("zh")
+	TranslationServer.set_locale("en")
 	update_ui()
+	$WindowIntro.popup_centered()
 	#$Window.child_controls_changed()
 	pass # Replace with function body.
 
@@ -48,4 +49,9 @@ func _on_button_quit_pressed():
 func _on_board_combine_event_happend(final_value : int):
 	score += final_value
 	update_ui()
+	pass # Replace with function body.
+
+
+func _on_window_intro_close_requested():
+	$WindowIntro.hide()
 	pass # Replace with function body.

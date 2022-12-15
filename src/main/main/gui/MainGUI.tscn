@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dspll87c2n0yn"]
 
-[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_xigkx"]
+[ext_resource type="Theme" uid="uid://bkcfr87v0i1wm" path="res://assets/theme/default_theme.tres" id="1_aqp4v"]
 [ext_resource type="PackedScene" uid="uid://cuv71i0daq75d" path="res://src/main/board/Board.tscn" id="2_ebxrc"]
 [ext_resource type="Script" path="res://src/main/main/gui/MainGUI.gd" id="2_kmyd3"]
 [ext_resource type="PackedScene" uid="uid://dfhb2na6ha3oo" path="res://src/main/main/gui/window_settings/WindowSettings.tscn" id="3_6ivyv"]
@@ -25,8 +25,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_xigkx")
+theme = ExtResource("1_aqp4v")
 script = ExtResource("2_kmyd3")
+
+[node name="WindowIntro" type="Window" parent="."]
+size = Vector2i(800, 250)
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowIntro"]
+custom_minimum_size = Vector2(800, 250)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowIntro/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WindowIntro/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "!intro1"
+
+[node name="Label2" type="Label" parent="WindowIntro/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "!intro2"
+
+[node name="Label3" type="Label" parent="WindowIntro/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "!intro3"
 
 [node name="PopupFail" type="PopupPanel" parent="."]
 size = Vector2i(308, 208)
@@ -171,6 +203,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "!quit"
 
+[connection signal="close_requested" from="WindowIntro" to="." method="_on_window_intro_close_requested"]
 [connection signal="combine_event_happend" from="MarginContainer/HSplitContainer/MarginContainer/Board" to="." method="_on_board_combine_event_happend"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonSetting" to="." method="_on_button_setting_pressed"]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
